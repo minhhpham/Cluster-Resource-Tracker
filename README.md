@@ -17,6 +17,11 @@ python configure.py
 chmod +x install-server.sh
 sudo ./install-server.sh
 ```
+If firewall is enabled, you will need to allow connection to port 2108. For example, with `firewalld`:
+```
+firewall-cmd --zone=trusted --permanent --add-port=2108/tcp
+firewall-cmd --reload
+```
 ### On Control Node/Head Node
 ```
 git clone https://github.com/minhhpham/Cluster-Resource-Tracker
