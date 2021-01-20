@@ -7,11 +7,20 @@ Currently, supported resources are:
  - GPU usage (through `nvidia-smi` command)
 
 ## HOW TO INSTALL AND SETUP
-### In Control Node/Head Node
-
-
-
-### In Compute Node
+### On Compute Node
+Requirements: `python` and `pip`, assuming `systemd` is being used.
 ```
-
+git clone https://github.com/minhhpham/Cluster-Resource-Tracker
+cd Cluster-Resource-Tracker
+pip install -r requirements.txt
+python configure.py
+chmod +x install-server.sh
+sudo ./install-server.sh
+```
+### On Control Node/Head Node
+```
+git clone https://github.com/minhhpham/Cluster-Resource-Tracker
+cd Cluster-Resource-Tracker
+chmod +x isntall-client.sh
+sudo ./install-client.sh
 ```

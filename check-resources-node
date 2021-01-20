@@ -1,0 +1,23 @@
+# bash script to send requests to compute nodes for resource checking
+# usage: track-resources-node <NodeName>
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+	echo "usage: track-resources-node <NodeName>"
+	echo "For example: track-resources-node GPU6"
+	exit 0
+fi
+
+NODENAME=$1
+
+# check if host is valid & reachable
+ping -c1 $NODENAME&>/dev/null
+if [ $? -ne 0 ]; then
+	echo "Host $NODENAME not valid or not reachable"
+	exit 1
+fi
+
+# now send http request
+curl $NODENAME:2108/?UID=$UID
+

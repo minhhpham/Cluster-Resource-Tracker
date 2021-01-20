@@ -1,0 +1,9 @@
+[Unit]
+Description=Tracker for resource on compute node
+
+[Service]
+ExecStart=/home/minhpham/anaconda3/bin/python /data/Documents/Cluster-Resource-Tracker/tracker.py
+Restart=always
+
+[Install]
+WantedBy=default.target
